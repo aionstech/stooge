@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animation Studio</title>
+    <title>Home</title>
     <style>
         *{
             margin: 0;
@@ -12,7 +12,7 @@
         .banner{
             width: 100%;
             height: 100vh;
-            background-color: rgb(104, 148, 151);
+            background-color: #7BF4FD;
         }
         /* ----------navbar-------- */
         .navbar{
@@ -23,107 +23,81 @@
             align-items: center;
             justify-content: space-between;
         }
-        .navbar h1{
-            color: #70e4d8;
-            font-family: monospace;
-            font-size: 30px;
+        
+        img{
+            height: 60px;
+            width: 60px;
         }
         .navbar ul li{
            list-style: none;
            display: inline-block;
            margin: 0 20px;
            position: relative;
+           font-size: 20px;
         }
         .navbar ul li a{
           text-decoration: none;
-          color: white;
+          color: #F727BB;
         }
-        .navbar ul li::after{
-            content: '';
-            height: 3px;
-            width: 0;
-            background: lightblue;
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            transition: 0.5s;
+        .navbar ul li a:hover{
+            color: #5F0107;
         }
-        .navbar ul li:hover::after{
-            width: 100%;
+        .navbar ul li a.active{
+            color: #5F0107;
         }
         /* ----------Content-------- */
         .content{
             width: 100%;
             position: absolute;
-            top: 50%;
+            top: 40%;
             transform: translateY(-50%);
             text-align: center;
-            color: white;
         }
-        .content h1{
-            font-size: 60px;
+        #name {
+            font-size: 65px;
             margin-top: 80px;
+            font-weight: bold;
+            color: #F727BB;
+            --x-offset: -0.0625em;
+    --y-offset: 0.0625em;
+    --stroke: 0.025em;
+    --background-color: white;
+    --stroke-color: lightblue;
+    text-shadow: var(--x-offset) var(--y-offset) 0px var(--background-color), calc( var(--x-offset) - var(--stroke) ) calc( var(--y-offset) + var(--stroke) ) 0px var(--stroke-color);
         }
-        .content p{
+        #description {
+            font-size: 50px;
+            font-weight: bold;
             margin: 20px auto;
-            font-weight: 100;
-            font-size: 20px;
             line-height: 25px;
         }
-        button{
-            width: 200px;
-            padding: 15px 0;
-            text-align: center;
-            margin: 20px 10px;
-            border-radius: 25px;
-            font-weight: bold;
-            border: 2px solid #047e72;
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        span{
-            background: #009688;
-            height: 100%;
-            width: 0;
-            border-radius: 25px;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            z-index: -1;
-            transition: 0.5s;
-        }
-        button:hover span{
-            width: 100%;
-        }
-        button:hover{
-            border: none;
-        }
     </style>
+    <!-- --------Script-------- -->
+    <script>
+        // ----moving on pages----
+        const activePage = window.location.pathname;
+        const navLinks = document.querySelectorAll('navbar a').forEach(link =>{
+            if(link.href.includes(`${activePage}`)){
+                link.classList.add('active');
+            }
+        })
+    </script>
 </head>
 <body>
     <div class="banner">
          <!-- ----------navbar-------- -->
         <div class="navbar">
-            <h1>Aions Animation</h1>
+            <img src="img/sp.png" alt="img not found">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="show.html">Shows</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
         <!-- ----------Content-------- -->
         <div class="content">
-            <h1>A Stunning Animaton Company</h1>
-            <p>We help you tell your story, express ideas, and boost conversions with video animation!</p>
-            <br>
-            <div>
-                <button type="button"><span></span>Portfolio</button>
-                <button type="button"><span></span>Order Now</button>
-            </div>
+            <h1 id="name">Stooge Pictures</h1>
+            <p id="description">to Feel Free</p>
         </div>
     </div>
 </body>
