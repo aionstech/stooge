@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="https://raw.githubusercontent.com/aionstech/stooge/main/images/sp2.png">
+    <title>Stooge Pictures</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        /* ---bd-blurr--- */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            z-index: -1; 
+        }
+
+        .background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            /* ---Changing bg-colour--- */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	        background-size: 400% 400%;
+	        animation: gradient 10s ease infinite;
+	        height: 100vh;
+        }
+        @keyframes gradient {
+	    0% {
+		        background-position: 0% 50%;
+	        }
+	    50% {
+		        background-position: 100% 50%;
+	        }
+	    100% {
+		        background-position: 0% 50%;
+	        }
+        }
+        /* ----------navbar-------- */
+        .navbar{
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        img{
+            height:75px;
+            width: 75px;
+        }
+        .navbar ul li{
+           list-style: none;
+           display: inline-block;
+           margin: 0 20px;
+           position: relative;
+           font-size: 20px;
+        }
+        .navbar ul li a{
+          text-decoration: none;
+          color: #F727BB;
+        }
+        .navbar ul li a:hover{
+            color: #5F0107;
+        }
+        .navbar ul li a.active{
+            color: #5F0107;
+        }
+         /* Media query for mobile view */
+         @media (max-width: 768px) {
+            .navbar ul li {
+                list-style: none;
+                display: inline-block;
+                text-align: center;
+                margin: 0 2px;
+                padding: 0 2px;
+                font-size: 15px;
+              }
+          }
+        /* ----------Content-------- */
+        .content{
+            width: 100%;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        .heading {
+            font-size: 65px;
+            margin-top: 80px;
+            font-weight: bold;
+            color: #F727BB;
+            --x-offset: -0.0625em;
+    --y-offset: 0.0625em;
+    --stroke: 0.025em;
+    --background-color: white;
+    --stroke-color: lightblue;
+    text-shadow: var(--x-offset) var(--y-offset) 0px var(--background-color), calc( var(--x-offset) - var(--stroke) ) calc( var(--y-offset) + var(--stroke) ) 0px var(--stroke-color);
+        }
+        
+    </style>
+    <!-- --------Script-------- -->
+    <script>
+        // ----moving on pages----
+        const activePage = window.location.pathname;
+        const navLinks = document.querySelectorAll('navbar a').forEach(link =>{
+            if(link.href.includes(`${activePage}`)){
+                link.classList.add('active');
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="banner">
+         <!-- ----------navbar-------- -->
+        <div class="navbar">
+            <a href="https://aions.co/Home.html"><img src="https://raw.githubusercontent.com/aionstech/stooge/main/images/sp2.png" alt="img not found"></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shows.html" class="active">Shows</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- ----------Content-------- -->
+        <div class="content">
+            <h1 class="heading">Shows</h1>
+            
+        </div>
+    </div>
+</body>
+</html>
